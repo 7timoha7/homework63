@@ -1,0 +1,34 @@
+.navBar {
+    border: 5px solid black;
+    border-radius: 15px;
+    background: rgba(128, 128, 128, 0.69);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px 10px 50px;
+    align-items: center;
+}
+
+.navLi {
+    list-style: none;
+    margin-right: 15px;
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.active {
+    color: #a60000;
+}
+
+.navUl {
+    display: flex;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    display: block;
+}

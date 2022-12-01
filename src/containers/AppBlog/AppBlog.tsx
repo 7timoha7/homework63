@@ -5,10 +5,11 @@ import BlogList from "../BlogList/BlogList";
 import AddBlog from "../BlogAddOrEdit/BlogAddOrEdit";
 import BlogReadMore from "../BlogReadMore/BlogReadMore";
 import BlogAddOrEdit from "../BlogAddOrEdit/BlogAddOrEdit";
+import "./Appblog.css";
 
 const AppBlog = () => {
   return (
-    <div>
+    <div className="appBlog">
       <header>
         <NavBar/>
       </header>

@@ -1,0 +1,10 @@
+.appBlog {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+body {
+    background: url("https://bgpics.ru/pictures/1920x1080/6949-fonyi-siniy-fon-dlya-sayta-1920x1080.jpg") no-repeat;
+    background-size: cover;
+    color: white;
+}
