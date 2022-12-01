@@ -13,9 +13,10 @@ const FormBlog: React.FC<Props> = ({id}) => {
     desc: '',
     time: '',
     id: '',
+
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const fetchBlog = useCallback(async () => {
     if (id) {
@@ -47,8 +48,8 @@ const FormBlog: React.FC<Props> = ({id}) => {
       } else {
         await axiosApi.post("/blog.json", blog);
       }
-    } catch {
-      console.error('error')
+    } catch(e) {
+      console.error('error', e);
     }
     navigate("/")
   }
@@ -56,7 +57,6 @@ const FormBlog: React.FC<Props> = ({id}) => {
   return (
     <div>
       <form onSubmit={formSubmit}>
-        <p>Add blog</p>
         <div>
           <div>
             <label htmlFor={"title"}>Title</label>

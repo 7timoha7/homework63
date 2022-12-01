@@ -11,14 +11,21 @@ const BlogReadMore = () => {
   const fetchBlog = useCallback(async () => {
     try {
       const blogResponse = await axiosApi.get('/blog/' + id + '.json');
-      setBlog(blogResponse.data);
-    } catch {
-      console.error()
+      if (blogResponse.data === null) {
+        throw new Error('not found!');
+      } else {
+        setBlog(blogResponse.data);
+      }
+    } finally {
+
+      console.log('ok')
     }
+
+
   }, [id]);
 
   useEffect(() => {
-    fetchBlog().catch(console.error);
+    fetchBlog().catch((e) => console.error(e.message));
   }, [fetchBlog]);
 
   const deletePost = async () => {

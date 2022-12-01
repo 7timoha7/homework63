@@ -16,8 +16,8 @@ const BlogList = () => {
         return blog
       });
       setBlogList(blogs)
-    } catch {
-      console.error('error')
+    } finally  {
+      console.error();
     }
   }, []);
 
