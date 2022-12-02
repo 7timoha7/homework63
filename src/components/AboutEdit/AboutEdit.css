@@ -1,0 +1,30 @@
+.aboutEdit {
+    border: 4px solid #ffffff;
+    border-radius: 15px;
+    background: rgba(31, 91, 150, 0.81);
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.aboutTextarea {
+    width: 98%;
+    border: 2px solid black;
+    height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btnEditSave {
+    background: #00fff1;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    display: inline-block;
+    color: black;
+}
+
+.btnEditSave:active {
+    background: #215453;
+}

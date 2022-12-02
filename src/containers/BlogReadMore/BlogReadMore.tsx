@@ -49,7 +49,7 @@ const BlogReadMore = () => {
         <div className="cardTitleSpan">
           <span>Description:</span>
         </div>
-        <span>{blog?.desc}</span>
+        <p style={{wordWrap: "break-word"}}>{blog?.desc}</p>
       </div>
       <div className="btnBoxReadMore">
         <button className="btnDelete" onClick={deletePost}>Delete</button>

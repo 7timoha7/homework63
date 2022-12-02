@@ -1,10 +1,45 @@
-import React from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import FormBlog from "../../components/FormBlog/FormBlog";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import "./BlogAddOrEdit.css";
+import axiosApi from "../../axiosApi";
+import {BlogApi, BlogType} from "../../types";
 
 const BlogAddOrEdit = () => {
+  const [loader, setLoader] = useState<boolean>(false);
+  const [blog, setBlog] = useState<BlogType | null>(null);
+
   const {id} = useParams();
+  const navigate = useNavigate();
+
+  const fetchBlog = useCallback(async () => {
+    setLoader(true);
+    try {
+      if (id) {
+        const blogResponse = await axiosApi.get("/blog/" + id + ".json");
+        setBlog(blogResponse.data);
+      }
+    } finally {
+      setLoader(false);
+    }
+  }, [id]);
+
+  useEffect(() => {
+    fetchBlog().catch(console.error);
+  }, [fetchBlog]);
+
+  const onSubmitForm = async (postData: BlogApi) => {
+    try {
+      if (id) {
+        await axiosApi.put("blog/" + id + ".json", postData);
+      } else {
+        await axiosApi.post("/blog.json", postData);
+      }
+    } catch (e) {
+      console.error('error', e);
+    }
+    navigate("/");
+  }
 
   const addOfEdit = () => {
     if (id) {
@@ -21,7 +56,10 @@ const BlogAddOrEdit = () => {
   return (
     <div className="addEdit">
       {addOfEdit()}
-      <FormBlog id={id}/>
+      {blog !== null && id !== undefined &&
+          <FormBlog onSubmit={onSubmitForm} existingPost={blog} loader={loader}/>}
+      {id === undefined &&
+          <FormBlog onSubmit={onSubmitForm} loader={loader}/>}
     </div>
   );
 };

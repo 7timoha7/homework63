@@ -1,0 +1,35 @@
+.contactsEdit {
+    border: 4px solid #ffffff;
+    border-radius: 15px;
+    background: rgba(31, 91, 150, 0.81);
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.labelTelAddress {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.inputTelAddress {
+    width: 98%;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btnContactsSave {
+    background: #00fff1;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+    display: inline-block;
+    color: black;
+}
+
+.btnContactsSave:active {
+    background: #215453;
+}
